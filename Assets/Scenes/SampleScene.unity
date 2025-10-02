@@ -311,6 +311,7 @@ GameObject:
   - component: {fileID: 634945351}
   - component: {fileID: 634945350}
   - component: {fileID: 634945353}
+  - component: {fileID: 634945354}
   m_Layer: 0
   m_Name: StarShipPawn
   m_TagString: Untagged
@@ -405,6 +406,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Pawn
   moveSpeed: 1
   turnSpeed: 0
+--- !u!114 &634945354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634945348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80b6f8919275dc146a4578c59144b253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorChanger
+  keyToUse: 99
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
