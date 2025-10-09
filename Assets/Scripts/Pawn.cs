@@ -3,23 +3,31 @@ using UnityEngine.UIElements;
 
 public class Pawn : MonoBehaviour
 {
+    [Header("Teleport")]
     private Transform spriteTransform;
     public float randomTeleportRange_X;
     public float randomTeleportRange_Y;
 
+    [Header("Movement")]
     public float moveSpeed;
     public float rotateValue;
     public float turboSpeed;
 
-    //teleport range for arrow keys
-   // public float teleportRange;
-
+    [Header("Componenets")]
+    public HealthComponent health;
+    public DeathComponenet death;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //Get the transform for this sprit
         spriteTransform = this.gameObject.GetComponent<Transform>();
+
+        //get health componnt
+        health = GetComponent<HealthComponent>();
+
+        //get death component
+        death = GetComponent<DeathComponenet>();
     }
 
     // Update is called once per frame
