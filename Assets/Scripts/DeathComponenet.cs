@@ -1,12 +1,9 @@
 using UnityEngine;
 
-public class DeathComponenet : MonoBehaviour
+//This class is abstract, this means it cannot be created but its children classes can be used in place of it.
+public abstract class DeathComponenet : MonoBehaviour
 {
 
-    public virtual void Die()
-    {
-        Debug.Log("Ugh... you got me.");
-    }
-
+    public abstract void Die();
 
 }
