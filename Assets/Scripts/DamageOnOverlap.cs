@@ -30,7 +30,7 @@ public class DamageOnOverlap : MonoBehaviour
                 //check that object has a death componenet
                 DeathComponenet otherDeath = other.gameObject.GetComponent<DeathComponenet>();
 
-                if (otherDeath != true)
+                if (otherDeath != null)
                 {
                     otherHealth.Die();
                 }
