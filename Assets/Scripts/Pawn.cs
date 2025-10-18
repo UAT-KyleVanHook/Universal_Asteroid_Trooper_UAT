@@ -17,6 +17,8 @@ public class Pawn : MonoBehaviour
     [Header("Componenets")]
     public HealthComponent health;
     public DeathComponenet death;
+    public Shooter shootComp;
+  
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,6 +31,10 @@ public class Pawn : MonoBehaviour
 
         //get death component
         death = GetComponent<DeathComponenet>();
+
+        //get Shoot Component
+        shootComp = GetComponent<Shooter>();
+
     }
 
     // Update is called once per frame
@@ -144,6 +150,14 @@ public class Pawn : MonoBehaviour
     public void TeleportRight(float moveSpeed)
     {
         transform.position = transform.position + (transform.right * moveSpeed);
+    }
+
+    //When activated instatiate a bullet prefab object 1 unit away from the pawn. Uses ShootBullet Component.
+    public void Shoot()
+    {
+
+        shootComp.Shoot();
+
     }
 }
 

@@ -101,5 +101,11 @@ public class Controller : MonoBehaviour
         {
             pawn.TeleportRight(pawn.moveSpeed);
         }
+
+        //if spacebar is pressed down, start firing sequance.
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            pawn.Shoot();
+        }
     }
 }

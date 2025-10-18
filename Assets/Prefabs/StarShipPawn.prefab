@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1356811950744638187
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1244375462381883011}
+  m_Layer: 0
+  m_Name: bulletOffest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1244375462381883011
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356811950744638187}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8581866790707909388}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7401511505078884539
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,7 +45,8 @@ GameObject:
   - component: {fileID: 3291531471782337620}
   - component: {fileID: 4646294444901962260}
   - component: {fileID: 8457034515101869718}
-  - component: {fileID: 1878327082710456803}
+  - component: {fileID: -1218325214164396207}
+  - component: {fileID: -4977913069049509721}
   m_Layer: 0
   m_Name: StarShipPawn
   m_TagString: Untagged
@@ -34,7 +66,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1244375462381883011}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8947632951620393917
@@ -127,6 +160,7 @@ MonoBehaviour:
   turboSpeed: 20
   health: {fileID: 0}
   death: {fileID: 0}
+  shootComp: {fileID: 0}
 --- !u!114 &4646294444901962260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,7 +221,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.28805584, y: 0.75}
   m_EdgeRadius: 0
---- !u!114 &1878327082710456803
+--- !u!114 &-1218325214164396207
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -196,6 +230,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 7401511505078884539}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2775c9865fa10b04bbc68e753be8af97, type: 3}
+  m_Script: {fileID: 11500000, guid: 962d0008403f53d4e8063bc7c1b54f89, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DeathRecenterComponent
+  m_EditorClassIdentifier: Assembly-CSharp::DeathDestroyComponent
+--- !u!114 &-4977913069049509721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7401511505078884539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb6095d4148245429430f33c90116f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShooterBullet
+  bulletPrefab: {fileID: 3787125751119133594, guid: e74243a70ff8053418a20e1742e4dc18, type: 3}
+  firePoint: {fileID: 1244375462381883011}
