@@ -18,7 +18,7 @@ public class Pawn : MonoBehaviour
     public HealthComponent health;
     public DeathComponenet death;
     public Shooter shootComp;
-  
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,6 +35,7 @@ public class Pawn : MonoBehaviour
         //get Shoot Component
         shootComp = GetComponent<Shooter>();
 
+        GameManager.instance.playerPawn = this;
     }
 
     // Update is called once per frame
@@ -159,5 +160,6 @@ public class Pawn : MonoBehaviour
         shootComp.Shoot();
 
     }
+
 }
 

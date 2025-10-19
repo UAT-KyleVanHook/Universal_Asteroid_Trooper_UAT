@@ -45,8 +45,8 @@ GameObject:
   - component: {fileID: 3291531471782337620}
   - component: {fileID: 4646294444901962260}
   - component: {fileID: 8457034515101869718}
-  - component: {fileID: -1218325214164396207}
   - component: {fileID: -4977913069049509721}
+  - component: {fileID: 6478040567411529977}
   m_Layer: 0
   m_Name: StarShipPawn
   m_TagString: Untagged
@@ -221,18 +221,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.28805584, y: 0.75}
   m_EdgeRadius: 0
---- !u!114 &-1218325214164396207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7401511505078884539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962d0008403f53d4e8063bc7c1b54f89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DeathDestroyComponent
 --- !u!114 &-4977913069049509721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,3 +235,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShooterBullet
   bulletPrefab: {fileID: 3787125751119133594, guid: e74243a70ff8053418a20e1742e4dc18, type: 3}
   firePoint: {fileID: 1244375462381883011}
+--- !u!114 &6478040567411529977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7401511505078884539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caedc45775cf56247a6a5c3b6d4cbf3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeathDestroyPlayer
