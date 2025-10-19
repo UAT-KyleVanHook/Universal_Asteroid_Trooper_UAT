@@ -79,6 +79,6 @@ public class GameManager : MonoBehaviour
 
         //used to set the editor to isPlaying is false. This quits the game in the editor
         //WARNING: This must be removed when building the game file. It will cause crashes otherwise.
-        UnityEditor.EditorApplication.isPlaying = false;
+        //UnityEditor.EditorApplication.isPlaying = false;
     }
 }

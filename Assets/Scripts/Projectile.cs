@@ -31,7 +31,7 @@ public class Projectile : MonoBehaviour
         HealthComponent otherHealth = other.gameObject.GetComponent<HealthComponent>();
 
         //check that the collided object has a health component. If true do damage.
-        if (otherHealth)
+        if (otherHealth != null)
         {
             otherHealth.TakeDamage(bulletDamage);
         }
