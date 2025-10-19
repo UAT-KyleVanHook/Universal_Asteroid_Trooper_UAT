@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public Pawn playerPawn;
     public bool isPlayerDead = false;
 
+    bool bPlayDeathMessage = true;
+
     //this is  the only GameManager that can exist. We want this to happen before start
     void Awake()
     {
@@ -40,17 +42,43 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         //check if the amount of damageZones equals 0. If they do, then print the word "Victory" onto the debug log.
-        if(damageZones.Count == 0)
+        //bPlayDeathMessage checks if it should play the message continously. If true, it will allow the message to be played. 
+        if (damageZones.Count == 0 && bPlayDeathMessage)
         {
-            Debug.Log("Victory!");
+            WinGame();
         }
 
 
-        //check that the playerPawn is null. Check that the bool isPlayerDead is true. If playerPawn is null and isPlayerdead true, then print "Failure" onto the degub log.
-        if(playerPawn == null && isPlayerDead == true)
+        //check that the playerPawn is null. Check that the bool isPlayerDead is true. If playerPawn is null and isPlayerdead true, then print "Failure" onto the debug log.
+        //bPlayDeathMessage checks if it should play the message continously. If true, it will allow the message to be played. 
+        if (playerPawn == null && isPlayerDead == true && bPlayDeathMessage == true)
         {
-            Debug.Log("Failure...");
+            LoseGame();
         }
 
+    }
+
+    //prints to the debug log  "Victory"
+    void WinGame()
+    {
+        Debug.Log("Victory!");
+
+        bPlayDeathMessage=false;
+
+        //used to set the editor to isPlaying is false. This quits the game in the editor
+        //WARNING: This must be removed when building the game file. It will cause crashes otherwise.
+        //UnityEditor.EditorApplication.isPlaying = false;
+    }
+
+    //prints to the debug log "Failure
+    void LoseGame()
+    {
+        Debug.Log("Failure...");
+
+        bPlayDeathMessage = false;
+
+        //used to set the editor to isPlaying is false. This quits the game in the editor
+        //WARNING: This must be removed when building the game file. It will cause crashes otherwise.
+        UnityEditor.EditorApplication.isPlaying = false;
     }
 }
