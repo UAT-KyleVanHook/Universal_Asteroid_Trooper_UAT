@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
     {
         //check if the amount of damageZones equals 0. If they do, then print the word "Victory" onto the debug log.
         //bPlayDeathMessage checks if it should play the message continously. If true, it will allow the message to be played. 
-        if (damageZones.Count == 0 && bPlayDeathMessage)
+        if (damageZones.Count == 0 && bPlayDeathMessage == true)
         {
             WinGame();
         }
