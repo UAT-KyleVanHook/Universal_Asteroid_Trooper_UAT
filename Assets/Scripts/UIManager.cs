@@ -74,7 +74,7 @@ public class UIManager : MonoBehaviour
         scoreText.text = "Score: " + UIScore; 
 
     }
-
+   
     void UpdateEnemyCount()
     {
         //update current enemies and the text

@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerHealth : HealthComponent
 {
 
-    //iherited by healthcomp
+    //inherited healthcomp
     //variables are still in it
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
