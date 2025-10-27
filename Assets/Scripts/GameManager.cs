@@ -8,11 +8,23 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public List<DamageOnOverlap> damageZones;
+    public int enemyCount;
+   //ublic int startingEnemies;
 
+    //player variables
     public Pawn playerPawn;
     public bool isPlayerDead = false;
 
     bool bPlayDeathMessage = true;
+
+    //score for game
+    [Header("Score")]
+    public float score;
+
+    //timer variables
+    [Header("Timer")]
+    public float TimeRemaining;
+    public float MaxTime;
 
     //this is  the only GameManager that can exist. We want this to happen before start
     void Awake()
@@ -38,9 +50,13 @@ public class GameManager : MonoBehaviour
 
     }
 
+
     // Update is called once per frame
     void Update()
     {
+        //check the current amount of enemies at this point.
+        GetRemainingEnemies();
+
         //check if the amount of damageZones equals 0. If they do, then print the word "Victory" onto the debug log.
         //bPlayDeathMessage checks if it should play the message continously. If true, it will allow the message to be played. 
         if (damageZones.Count == 0 && bPlayDeathMessage == true)
@@ -58,8 +74,13 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void resetTimer()
+    {
+        TimeRemaining = MaxTime;
+    }
+
     //prints to the debug log  "Victory"
-    void WinGame()
+    public void WinGame()
     {
         Debug.Log("Victory!");
 
@@ -71,7 +92,7 @@ public class GameManager : MonoBehaviour
     }
 
     //prints to the debug log "Failure
-    void LoseGame()
+    public void LoseGame()
     {
         Debug.Log("Failure...");
 
@@ -80,5 +101,12 @@ public class GameManager : MonoBehaviour
         //used to set the editor to isPlaying is false. This quits the game in the editor
         //WARNING: This must be removed when building the game file. It will cause crashes otherwise.
         //UnityEditor.EditorApplication.isPlaying = false;
+    }
+
+
+    //gets the remaining enemeies in the level
+    public void GetRemainingEnemies()
+    {
+        enemyCount = damageZones.Count;
     }
 }
