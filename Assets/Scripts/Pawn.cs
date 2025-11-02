@@ -19,6 +19,10 @@ public class Pawn : MonoBehaviour
     public DeathComponenet death;
     public Shooter shootComp;
 
+    [Header("Audio")]
+    //public AudioClip shootingSoundClip;
+    public AudioSource audioSource;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,6 +40,10 @@ public class Pawn : MonoBehaviour
         shootComp = GetComponent<Shooter>();
 
         GameManager.instance.playerPawn = this;
+
+        //audio
+        audioSource.clip = GameManager.instance.shootingSound;
+        audioSource.volume = 0.3f;
     }
 
     // Update is called once per frame
@@ -158,6 +166,9 @@ public class Pawn : MonoBehaviour
     {
 
         shootComp.Shoot();
+
+        //play audio clip once the bullet has been shot
+        audioSource.Play();
 
     }
 

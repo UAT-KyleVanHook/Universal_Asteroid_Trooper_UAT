@@ -1,14 +1,20 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class EnemyHealthComponent : HealthComponent
 {
     //health bar variable- needs healthbar comp to work properly
     [SerializeField] HealthBar healthBar;
 
+    //position for the audio source
+    Vector3 objectPoint;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
+        objectPoint = transform.position;
         
     }
 
@@ -35,6 +41,9 @@ public class EnemyHealthComponent : HealthComponent
         //if object isn't alive, set health to zero and tell it to die.
         if (!isAlive())
         {
+            //play explosion sound on object death
+            AudioSource.PlayClipAtPoint(GameManager.instance.explosionSound, objectPoint, 1.0f);
+
             currentHealth = 0;
             Die();
         }

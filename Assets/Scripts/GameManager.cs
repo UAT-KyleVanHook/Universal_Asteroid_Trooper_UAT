@@ -26,6 +26,15 @@ public class GameManager : MonoBehaviour
     public float TimeRemaining;
     public float MaxTime;
 
+    [Header("SoundClips")]
+    public AudioClip shootingSound;
+    public AudioClip explosionSound;
+    public AudioClip metalSound;
+    public AudioClip backgroundMusicClip;
+
+    [Header("Audio Sources")]
+    public AudioSource backgroundMusicSource;
+
     //this is  the only GameManager that can exist. We want this to happen before start
     void Awake()
     {
@@ -41,6 +50,9 @@ public class GameManager : MonoBehaviour
         //Create new List to store DamageOnOVerlap's
         damageZones = new List<DamageOnOverlap>();
 
+        //backgroundm usic
+        backgroundMusicSource.clip = backgroundMusicClip;
+        backgroundMusicSource.Play();
 
     }
 
@@ -67,7 +79,7 @@ public class GameManager : MonoBehaviour
 
         //check that the playerPawn is null. Check that the bool isPlayerDead is true. If playerPawn is null and isPlayerdead true, then print "Failure" onto the debug log.
         //bPlayDeathMessage checks if it should play the message continously. If true, it will allow the message to be played. 
-        if (playerPawn == null && isPlayerDead == true && bPlayDeathMessage == true)
+        if (isPlayerDead == true && bPlayDeathMessage == true && playerPawn == null)
         {
             LoseGame();
         }

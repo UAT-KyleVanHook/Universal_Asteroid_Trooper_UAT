@@ -25,8 +25,7 @@ public class ShooterBullet : Shooter
     public override void Shoot()
     {
 
-            Debug.Log("Shooting Bullet!");
-
+         Debug.Log("Shooting Bullet!");
 
         //Instatiate a projectile prefab, using the position of an Empty transform object attached to the player prefab.
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
