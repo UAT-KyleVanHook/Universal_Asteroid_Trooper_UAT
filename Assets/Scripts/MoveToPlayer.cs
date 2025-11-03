@@ -22,6 +22,7 @@ public class MoveToPlayer : MonoBehaviour
         moveToPlayer();
     }
 
+    //move to the player is they exist
     void moveToPlayer()
     {
         //if player pawn is true, move towards the position of the pawn

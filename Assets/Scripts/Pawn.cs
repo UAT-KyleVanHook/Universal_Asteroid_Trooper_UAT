@@ -42,8 +42,8 @@ public class Pawn : MonoBehaviour
         GameManager.instance.playerPawn = this;
 
         //audio
-        audioSource.clip = GameManager.instance.shootingSound;
-        audioSource.volume = 0.3f;
+        //audioSource.clip = GameManager.instance.shootingSound;
+        //audioSource.volume = 0.3f;
     }
 
     // Update is called once per frame
@@ -168,7 +168,7 @@ public class Pawn : MonoBehaviour
         shootComp.Shoot();
 
         //play audio clip once the bullet has been shot
-        audioSource.Play();
+        audioSource.PlayOneShot(GameManager.instance.shootingSound, 0.3f);
 
     }
 
