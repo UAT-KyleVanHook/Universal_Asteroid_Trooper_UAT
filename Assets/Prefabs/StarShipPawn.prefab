@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 9181744584426810553}
   - component: {fileID: 2856370679189195029}
   - component: {fileID: 1629035024325344930}
+  - component: {fileID: 1658222043433779263}
   m_Layer: 0
   m_Name: StarShipPawn
   m_TagString: Untagged
@@ -355,3 +356,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1658222043433779263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7401511505078884539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85718fbf7511deb469932ad7580c35fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Warp

@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
@@ -35,6 +36,13 @@ public class GameManager : MonoBehaviour
     [Header("Audio Sources")]
     public AudioSource backgroundMusicSource;
 
+    //screen warp boundry
+    [Header("Bounding Box")]
+    public double minX;
+    public double maxX;
+    public double minY;
+    public double maxY;
+
     //this is  the only GameManager that can exist. We want this to happen before start
     void Awake()
     {
@@ -50,9 +58,17 @@ public class GameManager : MonoBehaviour
         //Create new List to store DamageOnOVerlap's
         damageZones = new List<DamageOnOverlap>();
 
-        //backgroundm usic
+        //backgroundmusic
         backgroundMusicSource.clip = backgroundMusicClip;
         backgroundMusicSource.Play();
+
+        //screen warp bounds
+        minX = -10;
+        maxX = 10;
+        minY = -6;
+        maxY = 6;
+
+
 
     }
 

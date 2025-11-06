@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1951113434228064233}
   - component: {fileID: 3324093541176441328}
   - component: {fileID: 5121181583114428472}
-  - component: {fileID: 701689235704139498}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -103,18 +102,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &701689235704139498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5257061192822425368}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1caf507db8c523445b9836eac9491122, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NoRotation
 --- !u!1 &5931606353562972228
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,6 +280,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthBar
   healthSlider: {fileID: 8769406439951507536}
+  mainCamera: {fileID: 0}
+  target: {fileID: 1923078074357170820}
+  offset: {x: 0, y: 0.7, z: 0}
 --- !u!1 &7635767080342063298
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,7 +301,7 @@ GameObject:
   - component: {fileID: 5616672506054158683}
   - component: {fileID: 8587643455554077692}
   m_Layer: 0
-  m_Name: DamageZone
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -326,7 +316,7 @@ Transform:
   m_GameObject: {fileID: 7635767080342063298}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.49, y: 2.48, z: 0}
+  m_LocalPosition: {x: -6.42, y: 1.68, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
