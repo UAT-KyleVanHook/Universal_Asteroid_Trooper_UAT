@@ -14,7 +14,12 @@ public class UIManager : MonoBehaviour
     public TMP_Text enemyCounter;
     int CurrentEnemies;
 
-    bool bTimeRanOut = false;
+    //lives text and image
+    //public Image TimerImage;
+    public TMP_Text livesText;
+    float currentPlayerLives;
+
+    //bool bTimeRanOut = false;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -27,20 +32,26 @@ public class UIManager : MonoBehaviour
         bottomText.text = "Hello World!";
         scoreText.text = "Score:";
         enemyCounter.text = "Enemies:";
+        livesText.text = "Lives x";
 
         //get the amount of enemies from GameManager
         CurrentEnemies = GameManager.instance.enemyCount;
+        currentPlayerLives = GameManager.instance.playerLives;
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        GetCurrentEnemies();
+
         UpdateTimer();
 
         UpdateScoreText();
 
         UpdateEnemyCount();
+
+        UpdateLivesCount();
     }
 
     //updates the timer on screen
@@ -55,12 +66,13 @@ public class UIManager : MonoBehaviour
         bottomText.fontSize = 20;
 
         //if time runs out, declare game over.
-        if (displayTimeRemaining <= 0 && bTimeRanOut == false)
+        if (displayTimeRemaining <= 0 && GameManager.instance.bTimeRanOut == false)
         {
             
             Debug.Log("Time ran out.");
-            GameManager.instance.LoseGame();
-            bTimeRanOut = true;
+            GameManager.instance.bTimeRanOut = true;
+            //GameManager.instance.LoseGame();
+           
         }
 
     }
@@ -78,11 +90,26 @@ public class UIManager : MonoBehaviour
     void UpdateEnemyCount()
     {
         //update current enemies and the text
-        CurrentEnemies = GameManager.instance.enemyCount;
+        //CurrentEnemies = GameManager.instance.damageZones.Count;
 
        // Debug.Log("Current Enemeies: " + GameManager.instance.startingEnemies);
 
         enemyCounter.text = "Enemies: " + CurrentEnemies;
 
     }
+
+    void UpdateLivesCount()
+    {
+        currentPlayerLives = GameManager.instance.playerLives;
+
+        //Debug.Log("CurrentPlayerLives: " + currentPlayerLives);
+
+        livesText.text = "Lives x " + currentPlayerLives;
+    }
+
+    void GetCurrentEnemies()
+    {
+        CurrentEnemies = GameManager.instance.damageZones.Count;
+    }
+
 }

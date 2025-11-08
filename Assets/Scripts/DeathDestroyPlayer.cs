@@ -8,6 +8,9 @@ public class DeathDestroyPlayer : DeathComponenet
         Destroy(gameObject);
 
         //alert the GameManager that the playerPawn is dead
-        GameManager.instance.isPlayerDead = true;
+        //GameManager.instance.isPlayerDead = true;
+
+        //remove life
+        GameManager.instance.playerLives -= 1;
     }
 }

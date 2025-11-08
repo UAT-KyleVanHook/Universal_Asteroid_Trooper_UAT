@@ -156,8 +156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01ddfab6a989e6b46b5d4f713ce7a1a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pawn
-  randomTeleportRange_X: 5
-  randomTeleportRange_Y: 5
+  randomTeleportRange_X: 1
+  randomTeleportRange_Y: 1
   moveSpeed: 5
   rotateValue: 360
   turboSpeed: 20

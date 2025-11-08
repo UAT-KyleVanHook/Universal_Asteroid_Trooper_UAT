@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,17 +11,20 @@ public class GameManager : MonoBehaviour
 
     public List<DamageOnOverlap> damageZones;
     public int enemyCount;
-   //ublic int startingEnemies;
 
     //player variables
     public Pawn playerPawn;
-    public bool isPlayerDead = false;
+    //public bool isPlayerDead = false;
 
-    bool bPlayDeathMessage = true;
+    //was used to determine if player is dead, not needed now.
+    //bool bPlayDeathMessage = true;
 
     //score for game
     [Header("Score")]
     public float score;
+
+    [Header("Lives")]
+    public float playerLives;
 
     //timer variables
     [Header("Timer")]
@@ -38,10 +42,15 @@ public class GameManager : MonoBehaviour
 
     //screen warp boundry
     [Header("Bounding Box")]
-    public double minX;
-    public double maxX;
-    public double minY;
-    public double maxY;
+    public float minX;
+    public float maxX;
+    public float minY;
+    public float maxY;
+
+    //checks that the timer hasn't run out.
+    public bool bTimeRanOut = false;
+
+    private float currentTime = 1;
 
     //this is  the only GameManager that can exist. We want this to happen before start
     void Awake()
@@ -75,30 +84,37 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        //get remaining at the start of the game.
+        //GetRemainingEnemies();
     }
 
 
     // Update is called once per frame
     void Update()
     {
+
+        //Debug.Log(damageZones.Count);
+
         //check the current amount of enemies at this point.
-        GetRemainingEnemies();
-
-        //check if the amount of damageZones equals 0. If they do, then print the word "Victory" onto the debug log.
-        //bPlayDeathMessage checks if it should play the message continously. If true, it will allow the message to be played. 
-        if (damageZones.Count == 0 && bPlayDeathMessage == true)
-        {
-            WinGame();
-        }
-
+        CheckRemainingEnemies();
 
         //check that the playerPawn is null. Check that the bool isPlayerDead is true. If playerPawn is null and isPlayerdead true, then print "Failure" onto the debug log.
         //bPlayDeathMessage checks if it should play the message continously. If true, it will allow the message to be played. 
-        if (isPlayerDead == true && bPlayDeathMessage == true && playerPawn == null)
+        if (playerLives == 0 && playerPawn == null || bTimeRanOut == true)
         {
             LoseGame();
         }
+
+        //check if the amount of damageZones equals 0. If they do, then print the word "Victory" onto the debug log.
+        //bPlayDeathMessage checks if it should play the message continously. If true, it will allow the message to be played. 
+        if (damageZones.Count == 0)
+        {
+
+            //WinGame();
+
+            WinTimer();
+        }
+
 
     }
 
@@ -112,11 +128,14 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Victory!");
 
-        bPlayDeathMessage=false;
+        currentTime = 1;
 
-        //used to set the editor to isPlaying is false. This quits the game in the editor
-        //WARNING: This must be removed when building the game file. It will cause crashes otherwise.
-        //UnityEditor.EditorApplication.isPlaying = false;
+        //transition to  win scene
+        SceneManager.LoadScene("WinScene");
+
+        //bPlayDeathMessage=false;
+
+
     }
 
     //prints to the debug log "Failure
@@ -124,17 +143,34 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Failure...");
 
-        bPlayDeathMessage = false;
+        //transition to lose screen
+        SceneManager.LoadScene("GameOverScene");
 
-        //used to set the editor to isPlaying is false. This quits the game in the editor
-        //WARNING: This must be removed when building the game file. It will cause crashes otherwise.
-        //UnityEditor.EditorApplication.isPlaying = false;
+        //bPlayDeathMessage = false;
     }
 
 
-    //gets the remaining enemeies in the level
-    public void GetRemainingEnemies()
+    //checks the remaining enemeies in the level
+    public void CheckRemainingEnemies()
     {
         enemyCount = damageZones.Count;
+    }
+
+
+    //check that there is at least one second to determine if the game has really been won.
+    //this is to make sure that if we start a new game after winnin, enmeies get a chance to spawn in before declaring winner!
+    void WinTimer()
+    {
+        currentTime -= 1 * Time.deltaTime;
+
+        //if timer is 0, go to win screen and set current time to 0.
+        if( currentTime < 0 )
+        {
+            currentTime = 0;
+            WinGame();
+
+        }
+
+
     }
 }

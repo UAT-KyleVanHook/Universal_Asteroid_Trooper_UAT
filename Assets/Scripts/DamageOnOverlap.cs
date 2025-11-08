@@ -34,27 +34,35 @@ public class DamageOnOverlap : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //get healthComponenet
-        HealthComponent otherHealth = other.gameObject.GetComponent<HealthComponent>();
 
-        //check that the object has the health component
-        if (otherHealth != null)
+        //check if the collider is not another meteor
+        //don't want metero's to explode on contact with one another.
+        if (other.tag != "Meteor") 
         {
-            // if instakill is true, immeadiatly kill on trigger
-            if (isInstaKill == true)
-            {
-                //check that object has a death componenet
-                DeathComponenet otherDeath = other.gameObject.GetComponent<DeathComponenet>();
 
-                if (otherDeath != null)
+            //get healthComponenet
+            HealthComponent otherHealth = other.gameObject.GetComponent<HealthComponent>();
+
+            //check that the object has the health component
+            if (otherHealth != null)
+            {
+                // if instakill is true, immeadiatly kill on trigger
+                if (isInstaKill == true)
                 {
-                    otherHealth.Die();
+                    //check that object has a death componenet
+                    DeathComponenet otherDeath = other.gameObject.GetComponent<DeathComponenet>();
+
+                    if (otherDeath != null)
+                    {
+                        otherHealth.Die();
+                    }
+
                 }
-     
+
+                //otherwise just take damage
+                otherHealth.TakeDamage(damageDone);
             }
 
-            //otherwise just take damage
-            otherHealth.TakeDamage(damageDone);
         }
 
     }
