@@ -30,14 +30,6 @@ public class RandomEnemySpawn : MonoBehaviour
     void Update()
     {
 
-        //while counter is less than spawnAmount, spawn a single object each loop.
-       // while (counter < spawnAmount)
-        //{
-
-           // SpawnEnemy();
-
-        //}
-
     }
 
     void SpawnEnemy()
@@ -50,20 +42,20 @@ public class RandomEnemySpawn : MonoBehaviour
             float x1 = 0;
             float y1 = 0;
 
-
-            //make sure that x1 is not 0 and is at least 1 unit away from player.
+           
+            //make sure that x1 is not 0 and is at least 5 units away from player.
             do
             {
                 x1 = Random.Range(GameManager.instance.minX, GameManager.instance.maxX);
             }
-            while (x1 < -8 || x1 > 8);
+            while ((x1 > -5 && x1 <= 0) || (x1 < 5 && x1 >= 0));
 
-            //make sure that y1 is not 0 and is at least 1 unit away from player.
+            //make sure that y1 is not 0 and is at least 4 units away from player.
             do
             {
                 y1 = Random.Range(GameManager.instance.minX, GameManager.instance.maxX);
             }
-            while (y1 < -8 || y1 > 8);
+            while ((y1 > -4 && y1 <= 0) || (y1 < 4 && y1 >= 0));
 
 
 
@@ -86,7 +78,7 @@ public class RandomEnemySpawn : MonoBehaviour
 
         counter++;
 
-    }
+        }
 
     }
 }

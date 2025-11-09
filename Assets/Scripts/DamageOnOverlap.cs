@@ -54,6 +54,8 @@ public class DamageOnOverlap : MonoBehaviour
 
                     if (otherDeath != null)
                     {
+                        //play explosion sound at the point of an objects destruction.
+                        AudioSource.PlayClipAtPoint(GameManager.instance.explosionSound, transform.position, 1.0f);
                         otherHealth.Die();
                     }
 

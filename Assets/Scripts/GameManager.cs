@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
 
         //check that the playerPawn is null. Check that the bool isPlayerDead is true. If playerPawn is null and isPlayerdead true, then print "Failure" onto the debug log.
         //bPlayDeathMessage checks if it should play the message continously. If true, it will allow the message to be played. 
-        if (playerLives == 0 && playerPawn == null || bTimeRanOut == true)
+        if (playerLives <= 0 && playerPawn == null || bTimeRanOut == true)
         {
             LoseGame();
         }

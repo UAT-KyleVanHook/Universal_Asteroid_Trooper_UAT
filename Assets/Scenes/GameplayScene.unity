@@ -571,8 +571,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RandomEnemySpawn
   meteorPrefab: {fileID: 3033330721542572176, guid: fad6f58ec06d27d4f89610c6540b62d4, type: 3}
   ufoPrefab: {fileID: 6451130405280104529, guid: 6c2a99820d482074eb08b51fd735bc5c, type: 3}
-  spawnAmount: 10
-  spawnPercentage: 25
+  spawnAmount: 8
+  spawnPercentage: 30
 --- !u!4 &682264227
 Transform:
   m_ObjectHideFlags: 0
