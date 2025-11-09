@@ -47,9 +47,9 @@ GameObject:
   - component: {fileID: -4977913069049509721}
   - component: {fileID: 7478544764266581851}
   - component: {fileID: 9181744584426810553}
-  - component: {fileID: 2856370679189195029}
   - component: {fileID: 1629035024325344930}
   - component: {fileID: 1658222043433779263}
+  - component: {fileID: -1250671731744799190}
   m_Layer: 0
   m_Name: StarShipPawn
   m_TagString: Untagged
@@ -251,14 +251,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caedc45775cf56247a6a5c3b6d4cbf3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeathDestroyPlayer
---- !u!81 &2856370679189195029
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7401511505078884539}
-  m_Enabled: 1
 --- !u!82 &1629035024325344930
 AudioSource:
   m_ObjectHideFlags: 0
@@ -278,7 +270,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -368,3 +360,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85718fbf7511deb469932ad7580c35fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Warp
+--- !u!81 &-1250671731744799190
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7401511505078884539}
+  m_Enabled: 1

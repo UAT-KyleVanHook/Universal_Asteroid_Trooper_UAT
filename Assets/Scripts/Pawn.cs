@@ -172,5 +172,26 @@ public class Pawn : MonoBehaviour
 
     }
 
+    //if an object collides with the player, destroy that object if it has a healthComponent.
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+
+        //get healthComponenet
+        HealthComponent otherHealth = other.gameObject.GetComponent<HealthComponent>();
+
+        //check that the object has the health component
+        if (otherHealth != null)
+        {
+                //check that object has a death componenet
+                DeathComponenet otherDeath = other.gameObject.GetComponent<DeathComponenet>();
+
+                if (otherDeath != null)
+                {
+                    otherHealth.Die();
+                }
+
+            }
+        }
+
 }
 

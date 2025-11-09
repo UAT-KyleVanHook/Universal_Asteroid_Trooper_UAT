@@ -6,6 +6,9 @@ public class PlayerHealth : HealthComponent
     //inherited healthcomp
     //variables are still in it
 
+
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,6 +29,7 @@ public class PlayerHealth : HealthComponent
         //if object isn't alive, set health to zero and tell it to die.
         if (!isAlive())
         {
+
             currentHealth = 0;
             Die();
         }
