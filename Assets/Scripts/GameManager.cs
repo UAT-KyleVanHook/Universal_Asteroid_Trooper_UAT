@@ -72,10 +72,10 @@ public class GameManager : MonoBehaviour
         backgroundMusicSource.Play();
 
         //screen warp bounds
-        minX = -10;
-        maxX = 10;
-        minY = -6;
-        maxY = 6;
+        //minX = -10;
+        //maxX = 10;
+        //minY = -6;
+        //maxY = 6;
 
 
 

@@ -161,10 +161,10 @@ MonoBehaviour:
   metalSound: {fileID: 8300000, guid: ccb4e9c5edfe2484188510943907d425, type: 3}
   backgroundMusicClip: {fileID: 8300000, guid: 71b2a8aa858010b42a57616327979bf0, type: 3}
   backgroundMusicSource: {fileID: 29821511}
-  minX: 0
-  maxX: 0
-  minY: 0
-  maxY: 0
+  minX: -11
+  maxX: 11
+  minY: -6
+  maxY: 6
   bTimeRanOut: 0
 --- !u!4 &29821510
 Transform:
@@ -571,8 +571,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RandomEnemySpawn
   meteorPrefab: {fileID: 3033330721542572176, guid: fad6f58ec06d27d4f89610c6540b62d4, type: 3}
   ufoPrefab: {fileID: 6451130405280104529, guid: 6c2a99820d482074eb08b51fd735bc5c, type: 3}
-  spawnAmount: 8
-  spawnPercentage: 30
+  spawnAmount: 10
+  spawnPercentage: 50
 --- !u!4 &682264227
 Transform:
   m_ObjectHideFlags: 0
